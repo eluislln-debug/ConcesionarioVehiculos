@@ -4,10 +4,7 @@
  */
 package vista;
 
-/**
- *
- * @author Asus
- */
+import java.util.UUID;
 public class Registro_usuario extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registro_usuario.class.getName());
@@ -45,6 +42,7 @@ public class Registro_usuario extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
+        Comborol = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -203,6 +201,14 @@ public class Registro_usuario extends javax.swing.JFrame {
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 380, 210, 30));
 
+        Comborol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Cliente" }));
+        Comborol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComborolActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Comborol, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 110, 30));
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/unnamed_3.jpg"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 490));
 
@@ -214,8 +220,44 @@ public class Registro_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String nombre = jTextField1.getText().trim();
+        String usuario = jTextField2.getText().trim();
+        String contrasena = jTextField3.getText().trim();
+        String confirmar = jTextField4.getText().trim();
+        String rol = Comborol.getSelectedItem().toString(); // 👈 tomamos el rol seleccionado
+
+        if (nombre.isEmpty() || usuario.isEmpty() || contrasena.isEmpty() || confirmar.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios");
+            return;
+        }
+
+        if (!contrasena.equals(confirmar)) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden");
+            return;
+        }
+
+        // Verificar que haya seleccionado un rol válido (opcional, si agregaste "Seleccione un rol")
+        if (rol.equals("Seleccione un rol")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor selecciona un rol válido");
+            return;
+        }
+
+        // Generar ID único
+        String id = java.util.UUID.randomUUID().toString();
+
+        // Guardar usuario en el CSV
+        modelo.CsvUsuarios.guardarUsuario(id, nombre, usuario, contrasena, rol);
+
+        javax.swing.JOptionPane.showMessageDialog(this, "✅ Registro exitoso. Inicia sesión ahora.");
+
+        // Redirigir a inicio de sesión
+        new Inicio_sesion().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ComborolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComborolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComborolActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,6 +285,7 @@ public class Registro_usuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Comborol;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

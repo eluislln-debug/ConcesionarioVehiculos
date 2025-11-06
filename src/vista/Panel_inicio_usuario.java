@@ -63,6 +63,11 @@ public class Panel_inicio_usuario extends javax.swing.JFrame {
 
         btnCerrarSesion.setFont(new java.awt.Font("Roboto Mono", 2, 18)); // NOI18N
         btnCerrarSesion.setText("Cerrar sesion");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -111,6 +116,11 @@ public class Panel_inicio_usuario extends javax.swing.JFrame {
 
         btnVerCatalogo.setFont(new java.awt.Font("Roboto Mono", 2, 18)); // NOI18N
         btnVerCatalogo.setText("Ver catalogo");
+        btnVerCatalogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerCatalogoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -194,6 +204,21 @@ public class Panel_inicio_usuario extends javax.swing.JFrame {
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPerfilActionPerformed
+
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this, 
+            "¿Deseas cerrar sesión?", "Confirmar", javax.swing.JOptionPane.YES_NO_OPTION);
+
+        if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+            new Inicio_sesion().setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnVerCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCatalogoActionPerformed
+        new CatalogoVehiculos().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVerCatalogoActionPerformed
 
     /**
      * @param args the command line arguments

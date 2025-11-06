@@ -65,6 +65,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cerrar sesion"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarSesionActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -151,6 +154,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Ver catalogo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerCatalogoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

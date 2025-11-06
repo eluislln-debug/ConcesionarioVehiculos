@@ -61,11 +61,21 @@ public class Inicio_sesion extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Roboto Mono", 0, 12)); // NOI18N
         jButton1.setText("Iniciar sesion");
         jButton1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 280, 40));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 255));
         jButton2.setText("Registrarse");
         jButton2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 280, 40));
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -141,6 +151,38 @@ public class Inicio_sesion extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String user = jTextField1.getText().trim();
+        String pass = jTextField2.getText().trim();
+
+        if (user.isEmpty() || pass.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos");
+            return;
+        }
+
+        String rol = modelo.CsvUsuarios.validarUsuario(user, pass);
+
+        if (rol == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
+        } else if (rol.equals("Administrador")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido Administrador");
+            new Panel_inicio_admin().setVisible(true);
+            this.dispose();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Bienvenido Cliente");
+            new Panel_inicio_usuario().setVisible(true);
+            this.dispose();
+        }
+
+        jTextField1.setText("");
+        jTextField2.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new Registro_usuario().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
