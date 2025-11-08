@@ -8,14 +8,14 @@ package vista;
  *
  * @author f
  */
-public class CatalogoVehiculos extends javax.swing.JFrame {
+public class MenuCliente extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CatalogoVehiculos.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuCliente.class.getName());
 
     /**
-     * Creates new form CatalogoVehiculos
+     * Creates new form MenuCliente
      */
-    public CatalogoVehiculos() {
+    public MenuCliente() {
         initComponents();
     }
 
@@ -66,7 +66,7 @@ public class CatalogoVehiculos extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new CatalogoVehiculos().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MenuCliente().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

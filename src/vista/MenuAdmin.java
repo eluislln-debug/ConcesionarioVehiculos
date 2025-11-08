@@ -8,14 +8,14 @@ package vista;
  *
  * @author f
  */
-public class Panel_inicio_admin extends javax.swing.JFrame {
+public class MenuAdmin extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Panel_inicio_admin.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuAdmin.class.getName());
 
     /**
-     * Creates new form Panel_inicio_admin
+     * Creates new form MenuAdmin
      */
-    public Panel_inicio_admin() {
+    public MenuAdmin() {
         initComponents();
     }
 
@@ -66,7 +66,7 @@ public class Panel_inicio_admin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Panel_inicio_admin().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MenuAdmin().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
