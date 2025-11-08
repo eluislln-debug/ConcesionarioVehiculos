@@ -3,16 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/vista/Inicio_sesion.java</file>
-            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/vista/Panel_inicio_usuario.java</file>
-            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/vista/Registro_usuario.java</file>
-            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/data/usuarios.csv</file>
-            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/modelo/Usuario.java</file>
-            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/modelo/CsvUsuarios.java</file>
-            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/vista/Panel_inicio_admin.java</file>
-            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/vista/CatalogoVehiculos.java</file>
-            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/controlador/ControladorUsuario.java</file>
+            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/controlador/ControladorVehiculo.java</file>
+            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/modelo/VehiculoDAO.java</file>
+            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/modelo/Vehiculo.java</file>
             <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/util/CsvUtil.java</file>
+            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/util/LectorCSV.java</file>
+            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/vista/GestionVehiculos.java</file>
+            <file>file:/C:/Users/f/Desktop/ConcesionarioVehiculos/src/vista/Registro.java</file>
         </group>
     </open-files>
 </project-private>
