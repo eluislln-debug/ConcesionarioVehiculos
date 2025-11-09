@@ -41,7 +41,6 @@ public class Inicio extends javax.swing.JFrame {
         jLabel1.setText("Bienvenido");
 
         btnIniciarsesion.setBackground(new java.awt.Color(0, 153, 204));
-        btnIniciarsesion.setForeground(new java.awt.Color(0, 0, 0));
         btnIniciarsesion.setText("Iniciar sesion");
         btnIniciarsesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,8 +48,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("Registrarse");
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,7 +56,6 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setForeground(new java.awt.Color(0, 0, 0));
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,14 +64,13 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\f\\Desktop\\car-removebg-preview.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18))
             .addGroup(layout.createSequentialGroup()
@@ -86,7 +81,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnIniciarsesion)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 268, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +96,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(btnRegistro)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalir)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         pack();
