@@ -4,19 +4,35 @@
  */
 package vista;
 
-/**
- *
- * @author f
- */
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.io.*;
 public class GestionUsuarios extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GestionUsuarios.class.getName());
 
-    /**
-     * Creates new form GestionUsuarios
-     */
+    private final String RUTA = "src/data/usuarios.csv";
+    private DefaultTableModel modelo;
     public GestionUsuarios() {
         initComponents();
+        setLocationRelativeTo(null);
+        cargarUsuarios();
+    }
+     private void cargarUsuarios() {
+        modelo = new DefaultTableModel(new String[]{"Cédula", "Nombre", "Usuario", "Contraseña", "Rol", "Teléfono"}, 0);
+        try (BufferedReader br = new BufferedReader(new FileReader(RUTA))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+                if (datos.length == 6 && datos[4].equalsIgnoreCase("cliente")) {
+                    modelo.addRow(datos);
+                }
+            }
+            tblUsuarios.setModel(modelo);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error al leer usuarios: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -28,22 +44,216 @@ public class GestionUsuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblUsuarios = new javax.swing.JTable();
+        lblId = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        lblContrasena = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
+        txtCedula = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
+        txtContrasena = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        btnActualizar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblUsuarios);
+
+        lblId.setText("Cedula");
+
+        lblNombre.setText("Nombre");
+
+        lblUsuario.setText("Usuario");
+
+        lblContrasena.setText("Contraseña");
+
+        lblTelefono.setText("Telefono");
+
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblNombre)
+                                .addComponent(lblId))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                .addComponent(txtNombre)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblUsuario)
+                                .addComponent(lblContrasena))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtUsuario)
+                                .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblTelefono)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtTelefono)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnActualizar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnVolver)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblId)
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsuario)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblContrasena)
+                    .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefono)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizar)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnVolver))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaActionPerformed
+    private void tblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {                                          
+        int fila = tblUsuarios.getSelectedRow();
+        if (fila >= 0) {
+            txtCedula.setText(modelo.getValueAt(fila, 0).toString());
+            txtNombre.setText(modelo.getValueAt(fila, 1).toString());
+            txtUsuario.setText(modelo.getValueAt(fila, 2).toString());
+            txtContrasena.setText(modelo.getValueAt(fila, 3).toString());
+            txtTelefono.setText(modelo.getValueAt(fila, 5).toString());
+        }
+    }
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        int fila = tblUsuarios.getSelectedRow();
+        if (fila < 0) {
+            JOptionPane.showMessageDialog(this, "Seleccione un usuario primero.");
+            return;
+        }
+
+        modelo.setValueAt(txtNombre.getText(), fila, 1);
+        modelo.setValueAt(txtUsuario.getText(), fila, 2);
+        modelo.setValueAt(txtContrasena.getText(), fila, 3);
+        modelo.setValueAt(txtTelefono.getText(), fila, 5);
+        guardarCambiosCSV();
+        JOptionPane.showMessageDialog(this, "Usuario actualizado correctamente.");
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        int fila = tblUsuarios.getSelectedRow();
+        if (fila < 0) {
+            JOptionPane.showMessageDialog(this, "Seleccione un usuario para eliminar.");
+            return;
+        }
+
+        int opcion = JOptionPane.showConfirmDialog(this,
+                "¿Está seguro de eliminar este usuario?",
+                "Confirmar eliminación",
+                JOptionPane.YES_NO_OPTION);
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            modelo.removeRow(fila);
+            guardarCambiosCSV();
+            JOptionPane.showMessageDialog(this, "Usuario eliminado correctamente.");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        new MenuAdmin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
+    private void guardarCambiosCSV() {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(RUTA))) {
+            for (int i = 0; i < modelo.getRowCount(); i++) {
+                bw.write(modelo.getValueAt(i, 0) + "," +
+                         modelo.getValueAt(i, 1) + "," +
+                         modelo.getValueAt(i, 2) + "," +
+                         modelo.getValueAt(i, 3) + "," +
+                         modelo.getValueAt(i, 4) + "," +
+                         modelo.getValueAt(i, 5));
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar cambios: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -70,5 +280,20 @@ public class GestionUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblContrasena;
+    private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JTable tblUsuarios;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtContrasena;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -54,6 +54,11 @@ public class MenuCliente extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/mini-auto-icon_89418.png"))); // NOI18N
         jButton2.setText("Ver catalogo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/4115235-exit-logout-sign-out_114030.png"))); // NOI18N
         jButton3.setText("Cerrar sesion");
@@ -140,7 +145,17 @@ try {
     }//GEN-LAST:event_btnAgendarCitaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        int opcion = JOptionPane.showConfirmDialog(
+                this,
+                "¿Está seguro de que desea cerrar sesión?",
+                "Confirmar salida",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            new Inicio().setVisible(true);
+            this.dispose(); // Cierra la ventana actual
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnMisCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMisCitasActionPerformed
@@ -164,6 +179,12 @@ try {
         }
     
     }//GEN-LAST:event_btnMisCitasActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        MenuCatalogo catalogo = new MenuCatalogo();
+        catalogo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

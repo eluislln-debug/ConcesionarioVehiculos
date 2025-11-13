@@ -76,6 +76,7 @@ public class GestionVehiculos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaVehiculos = new javax.swing.JTable();
         txtImagenes = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,13 +139,13 @@ public class GestionVehiculos extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel2.setText("Gestión de Vehículos");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 105, -1, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
 
         lblImagenVehiculo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImagenVehiculo.setMaximumSize(new java.awt.Dimension(200, 150));
         lblImagenVehiculo.setMinimumSize(new java.awt.Dimension(200, 150));
         lblImagenVehiculo.setPreferredSize(new java.awt.Dimension(200, 150));
-        jPanel3.add(lblImagenVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, -1, -1));
+        jPanel3.add(lblImagenVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 150, -1, -1));
 
         btnCargarImagen.setText("Cargar imagen");
         btnCargarImagen.addActionListener(new java.awt.event.ActionListener() {
@@ -196,6 +197,9 @@ public class GestionVehiculos extends javax.swing.JFrame {
         txtImagenes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel3.add(txtImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 359, 300, -1));
 
+        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\f\\Desktop\\car-removebg-preview.png")); // NOI18N
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 530, 130));
+
         jScrollPane4.setViewportView(jPanel3);
 
         jScrollPane3.setViewportView(jScrollPane4);
@@ -204,14 +208,11 @@ public class GestionVehiculos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1022, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1034, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
         );
 
         pack();
@@ -423,17 +424,17 @@ public class GestionVehiculos extends javax.swing.JFrame {
 
         for (Vehiculo v : listaVehiculos) {
             Object[] fila = {
-                v.getId(),
-                v.getMarca(),
-                v.getModelo(),
-                v.getCaracteristicas(),
-                v.getPrecio(),
-                v.getAnio(),
-                v.getDescripcion(),
-                v.getImagenes(),
-                v.getPropietario(),
-                v.getKilometraje()
-            };
+            v.getId(),
+            v.getMarca(),
+            v.getModelo(),
+            v.getCaracteristicas(),
+            String.format("%,.0f", v.getPrecio()),   // ← FORMATEO DEL PRECIO
+            v.getAnio(),
+            v.getDescripcion(),
+            v.getImagenes(),
+            v.getPropietario(),
+            String.format("%,.0f", v.getKilometraje())  // (opcional) formatear km también
+        };
             modeloTabla.addRow(fila);
         }
     }
@@ -479,6 +480,7 @@ public class GestionVehiculos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;

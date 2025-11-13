@@ -154,6 +154,7 @@ public class MenuMisCitas extends javax.swing.JFrame {
         btnMostrarcita = new javax.swing.JButton();
         btnCancelarCita = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -189,11 +190,19 @@ public class MenuMisCitas extends javax.swing.JFrame {
                 btnCancelarCitaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 213, 140, 40));
+        getContentPane().add(btnCancelarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 140, 40));
 
         jLabel1.setFont(new java.awt.Font("Roboto Mono", 2, 24)); // NOI18N
         jLabel1.setText("Mis citas  ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, 140, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -211,6 +220,12 @@ public class MenuMisCitas extends javax.swing.JFrame {
         
         eliminarCitaCSV();
     }//GEN-LAST:event_btnCancelarCitaActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+       MenuCliente menu = new MenuCliente();
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,6 +255,7 @@ public class MenuMisCitas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarCita;
     private javax.swing.JButton btnMostrarcita;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaCitas;

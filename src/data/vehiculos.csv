@@ -1,2 +1,4 @@
 id,marca,modelo,caracteristicas,precio,anio,descripcion,imagenes,videos,propietario,kilometraje
-1234567890,Ferrari,corolla,5 ruedas,3000000.0,2008,XD,imagenes/toyota_corolla.png,null,Andres,20.0
+111111,Toyota,Corolla,Auto,2000000.0,2011,...,imagenes/toyota_corolla.png,null,Andres,120.0
+12345678,Lamborghini,NA,dewvrw3f,2.0E10,2019,cwrdvrwv,imagenes/Lamborghini (1).png,null,Eduar,150.0
+2222222,Buggati,NA,wedvrwvfd,2.0E8,2022,cwvrevewf,imagenes/NAZ_7a603efdd85f4bfeac682d38f92b25c4.jpg,null,Eduar,200.0
