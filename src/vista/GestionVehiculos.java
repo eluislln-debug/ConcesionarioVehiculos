@@ -196,8 +196,6 @@ public class GestionVehiculos extends javax.swing.JFrame {
 
         txtImagenes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel3.add(txtImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 359, 300, -1));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\f\\Desktop\\car-removebg-preview.png")); // NOI18N
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 530, 130));
 
         jScrollPane4.setViewportView(jPanel3);

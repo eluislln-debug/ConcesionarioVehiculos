@@ -190,7 +190,7 @@ public class MenuMisCitas extends javax.swing.JFrame {
                 btnCancelarCitaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 140, 40));
+        getContentPane().add(btnCancelarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 140, 40));
 
         jLabel1.setFont(new java.awt.Font("Roboto Mono", 2, 24)); // NOI18N
         jLabel1.setText("Mis citas  ");
